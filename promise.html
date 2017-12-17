@@ -17,7 +17,7 @@
 
         //jquery: $.get();  $.post();
 
-        /* let $list = $('#list');
+         let $list = $('#list');
         $.get('product-data.json', {}, function (res) {
             let list = res.productData;
             for (let item of list) {
@@ -25,11 +25,11 @@
                 $list.append($li);
             }
     
-        }, 'json'); */
+        }, 'json');
 
         //ajax原理
 
-        /* //1、创建对象
+         //1、创建对象
         var xmlhttp;
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -48,21 +48,20 @@
             txt = txt + x[i].childNodes[0].nodeValue + "<br />";
         }
         document.getElementById("myDiv").innerHTML = txt;
- */
 
 
         //省 - 市 - 县 - 街道
 
-        /* $.get(url, {}, function(res){
+         $.get(url, {}, function(res){
             res //市的信息
             $.get(url, {市}, function(){
 
                 $.get()
             });
-        }); */
+        });
 
 
-        /*let p1 = new Promise((reslove, reject) => {
+        let p1 = new Promise((reslove, reject) => {
             $.get('product-data.json', {}, function (res) {
                 let list = res.productData;
                 if(list.length > 0){
@@ -77,9 +76,9 @@
             console.log('成功');
         }).catch(()=>{
             console.log('失败');
-        });*/
+        });
 
-        /*let flag1 = false, flag2 = false, flag3 = false;
+        let flag1 = false, flag2 = false, flag3 = false;
         $.get(url, function(){
             flag1 = true;
         });
@@ -95,7 +94,7 @@
             if(flag1 && flag2 && flag3){
                 ...
             }
-        }, 500);*/
+        }, 500);
 
         let p1 = new Promise((reslove, reject)=>{
             setTimeout(()=>{
