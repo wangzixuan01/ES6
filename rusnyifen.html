@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    {
+        let a = 10;
+        var b = 1;
+    }
+    console.log(a);//a is not defind
+    console.log(b);//1
+    for(let i=0;i<10;i++){
+
+    }
+    console.log(i);  // i is not defind
+    //计数器i只在for循环体内有效，在循环体外引用就会报错
+    var a= [];
+    for(var i =0;i<10;i++){
+        a[i]=function(){
+            console.log(i);
+        };
+    }
+    a[6](); //10
+    </script>
+</body>
+</html>
