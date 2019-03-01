@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="debounce" />
+
+    <script>
+        //非立即执行版:
+        //首先准备我们要使用的回调函数
+        function shotCat (content) {
+            console.log(content)
+        }
+
+        //然后准备包装函数:
+        //1,保存定时器标识 
+        //2,返回闭包函数: 1)对定时器的判断清除;
+        //2)一般还需要保存函数的参数(一般就是事件返回的对象)和上下文(定时器存在this隐式丢失,详情可以看我不知道的js上)
+        //最后补充一句,这里不建议通过定义一个全局变量来替代闭包保存定时器标识.
+
+        function shotCat (content) {
+            console.log(content)
+        }
+        function debounce(fun, delay = 500){
+            let timer = null   //保存定时器 
+            return function(args){
+                let that = this
+                let _args = args 
+                clearTimeout(fun.timer)
+                fun.timer = setTimeout(function(){
+                    fun.call(that,_args)
+                },delay)
+            }
+        }
+        let debounceShotCat = debounce(shotCat,500)
+        let input = document.getElementById("debounce");
+        input.addEventListener("keyup",function(e){
+            debounceShotCat(e.target.value)
+        })
+    </script>
+</body>
+</html>
